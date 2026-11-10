@@ -50,22 +50,23 @@ def make_sms(barangay, rating, hours):
     return f"VogGuard GREEN: no vog expected at {barangay}."
 
 
-barangays = pd.read_csv("data/amadeo_barangays.csv")
+if __name__ == "__main__":
+    barangays = pd.read_csv("data/amadeo_barangays.csv")
 
-scenarios = [
-    ("Today-like wind, high flux", 50, 5.0, 18638),
-    ("Wind toward Amadeo, low flux", 160, 5.0, 2000),
-    ("Wind toward Amadeo, medium flux", 160, 5.0, 7000),
-    ("Wind toward Amadeo, high flux", 160, 5.0, 18638),
-]
+    scenarios = [
+        ("Today-like wind, high flux", 50, 5.0, 18638),
+        ("Wind toward Amadeo, low flux", 160, 5.0, 2000),
+        ("Wind toward Amadeo, medium flux", 160, 5.0, 7000),
+        ("Wind toward Amadeo, high flux", 160, 5.0, 18638),
+    ]
 
-for name, wind_from, wind_speed, flux in scenarios:
-    result = rate_barangays(barangays, wind_from, wind_speed, flux)
-    print(f"\n{name}: wind from {wind_from} deg, {wind_speed} m/s, flux {flux} t/day")
-    print(result["rating"].value_counts().to_string())
+    for name, wind_from, wind_speed, flux in scenarios:
+        result = rate_barangays(barangays, wind_from, wind_speed, flux)
+        print(f"\n{name}: wind from {wind_from} deg, {wind_speed} m/s, flux {flux} t/day")
+        print(result["rating"].value_counts().to_string())
 
-    alerts = result[result["rating"] != "GREEN"].sort_values("arrival_hours")
-    if not alerts.empty:
-        first = alerts.iloc[0]
-        sms = make_sms(first["barangay"], first["rating"], first["arrival_hours"])
-        print("Sample SMS:", sms, f"({len(sms)} characters)")
+        alerts = result[result["rating"] != "GREEN"].sort_values("arrival_hours")
+        if not alerts.empty:
+            first = alerts.iloc[0]
+            sms = make_sms(first["barangay"], first["rating"], first["arrival_hours"])
+            print("Sample SMS:", sms, f"({len(sms)} characters)")
