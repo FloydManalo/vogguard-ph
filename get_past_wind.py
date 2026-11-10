@@ -30,16 +30,23 @@ if __name__ == "__main__":
     hourly = get_wind_for_date(DATE)
 
     alerted_hours = 0
+    uncertain_hours = 0
     for t, s, d in zip(hourly["time"], hourly["wind_speed_10m"], hourly["wind_direction_10m"]):
         if s is None or d is None:
             continue
         result = rate_barangays(barangays, d, s, FLUX)
-        flagged = result[result["rating"] != "GREEN"]
-        if flagged.empty:
-            print(t, "| wind from", d, "deg,", s, "m/s | ok")
-        else:
-            alerted_hours += 1
-            earliest = flagged["arrival_hours"].min()
-            print(t, "| wind from", d, "deg,", s, "m/s | ALERT, arrival ~", earliest, "hr")
+        firm = result[result["rating"].isin(["YELLOW", "RED"])]
+        unsure = result[result["rating"] == "UNCERTAIN"]
 
-    print(f"\nHours with an alert on {DATE}: {alerted_hours} of 24")
+        if not firm.empty:
+            alerted_hours += 1
+            earliest = firm["arrival_hours"].min()
+            print(t, "| wind from", d, "deg,", s, "m/s | ALERT, arrival ~", earliest, "hr")
+        elif not unsure.empty:
+            uncertain_hours += 1
+            earliest = unsure["arrival_hours"].min()
+            print(t, "| wind from", d, "deg,", s, "m/s | UNCERTAIN, wind too light (~", earliest, "hr)")
+        else:
+            print(t, "| wind from", d, "deg,", s, "m/s | ok")
+
+    print(f"\nOn {DATE}: {alerted_hours} alert hours, {uncertain_hours} uncertain hours, of 24")
