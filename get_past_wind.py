@@ -3,6 +3,7 @@ Amadeo would have been alerted. DATE and FLUX here are only for testing."""
 from datetime import datetime, timedelta
 import requests
 import pandas as pd
+import time
 from rate_barangays import CRATER_LAT, CRATER_LON
 from stability import rate_with_stability
 

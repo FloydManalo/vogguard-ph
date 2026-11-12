@@ -1,37 +1,149 @@
 # VogGuard PH
 
-An early-warning idea to help farmers know when volcanic smog (vog) from Taal Volcano is heading toward their farms, so they can wash their crops in time.
+An early-warning system concept exploring how farmers can receive localized alerts about volcanic smog (vog) from Taal Volcano, helping them prepare for potential agricultural impacts.
 
-Built by Francis Floyd G. Manalo, a 1st-year BS Computer Science student at Batangas State University - Alangilan, for the PhilSA Space Business Innovation Camp (SBIC) 2026.
+Developed by **Francis Floyd G. Manalo**, a 1st-year BS Computer Science student at **Batangas State University - Alangilan**, as an independent project that began during the **PhilSA Space Business Innovation Camp (SBIC) 2026**.
 
-## The problem
-Taal Volcano has been releasing large amounts of sulfur dioxide (SO₂) gas since 2021. The gas mixes with moisture in the air and forms acidic smog called vog, which can damage crops like coffee in Amadeo and pineapple in Silang. A vog episode in September 2023 was reported to cause about ₱1.9 million in agricultural damage in Balete, Batangas (Manila Bulletin).
+## The Problem
 
-PHIVOLCS publishes the crater's daily SO₂ output and general Taal-region warnings. But these don't say when vog will reach a specific barangay or farm, because that depends on the wind. Farmers often only notice vog by smell or eye irritation, when it has already arrived.
+Taal Volcano releases sulfur dioxide (SO₂), which can react with moisture and other substances in the atmosphere to form volcanic smog, commonly known as vog. Volcanic activity can also produce ashfall, which may affect crops and disrupt agricultural activities.
 
-## The idea
-VogGuard PH combines the crater's daily SO₂ output, wind forecasts, and barangay locations to work out which barangays are downwind and how soon the vog could arrive. Each barangay gets a Green, Yellow or Red rating, and the alert is sent by SMS to basic phones, so farmers don't need a smartphone or mobile data.
+Farmers in communities surrounding Taal may experience different volcanic hazards depending on their location and environmental conditions.
 
-The target is 1 to 3 hours of warning, which is meant to give farmers time to run their pumps or sprinklers. A pineapple farmer quoted in a GMA News report after the 2020 eruption said crops can be saved if washed right away.
+PHIVOLCS provides information about Taal Volcano's activity, including daily SO₂ emission measurements and volcanic bulletins. However, translating these sources into useful, localized information for individual farming communities remains a challenge.
 
-Satellite data (Sentinel-5P, through PhilSA's CopPhil) comes into the plan later, to check the predictions against what actually happened. It passes over only once a day, so it can't trigger a morning alert.
+VogGuard PH explores how volcanic, weather, and geographic data can be combined to provide more localized agricultural warnings.
 
-## Where I am now
-The business concept is written up in my SBIC workbook, where the project is at TRL 1 (research and idea only, no code). I'm now building a small prototype to show that the core logic can work with actual real data.
+## The Idea
 
-So far, I can load the barangays of Amadeo, Cavite and show them on a map with the Taal crater. Next is wind data and the downwind check.
+VogGuard PH aims to combine:
 
-## Files
-- `inspect_columns.py`: shows the column names in the barangay shapefile
-- `extract_barangays.py`: saves one lat/lon point per Amadeo barangay to a CSV
-- `plot_map.py`: draws the barangays and the crater on an interactive map
-- `data/amadeo_barangays.csv`: the 26 barangays of Amadeo with coordinates
+- **SO₂ emission data** - Daily sulfur dioxide measurements from Taal Volcano.
+- **Wind and weather data** - Wind direction and forecasts to help estimate possible downwind areas.
+- **Geographic data** - Barangay boundaries and locations of agricultural communities.
+- **Satellite observations** - Additional monitoring and validation using Sentinel-5P data.
 
-## How to run it
-1. Install Python, then run: `pip install geopandas pandas folium requests`
-2. Download the barangay boundaries (SHP zip) from data.humdata.org and put the adm4 files in `data/`
-3. Run `python extract_barangays.py`, then `python plot_map.py`
-4. Open the map from the `outputs/` folder in your browser
+The proposed system would estimate which barangays may be affected based on available environmental data and assign a **Green, Yellow, or Red** risk classification.
 
-## Data sources
-Barangay boundaries from HDX (COD-AB), map background from Esri. Planned: PHIVOLCS Taal bulletins, a weather API, and Sentinel-5P via CopPhil.
+Warnings could then be distributed through SMS, allowing farmers to receive updates without requiring a smartphone or mobile data connection.
+
+The initial goal is to explore whether the system could provide **1–3 hours of advance warning**. This is a development target, not yet a demonstrated capability.
+
+Sentinel-5P observations, potentially accessed through PhilSA's Copernicus Philippines (CopPhil), are also being considered for monitoring and retrospective validation. Since satellite observations are not continuously available, they would not serve as the sole trigger for immediate alerts.
+
+## Preliminary Field Research
+
+Initial field interviews were conducted during an agricultural exhibit, providing an opportunity to speak with representatives of agricultural organizations and cooperatives.
+
+### Organizations Interviewed
+
+**1. BAMAHGACO - San Pascual, Batangas**
+
+- Reported limited agricultural impact from Taal Volcano due to their location.
+- Recalled the 2020 eruption, when crops were covered with white ash.
+- No specific information about their warning and update channels was obtained.
+
+**2. San Jose Workers Multi-Purpose Cooperative**
+
+- Recalled ashfall events associated with Taal Volcano and reported that these affected crops and farming activities.
+- Reported receiving updates through SMS alerts, Facebook, and similar channels.
+- Suggested that protective tents or coverings against ashfall could help protect agricultural crops.
+
+### Initial Observations
+
+- Respondents were generally more familiar with ashfall experiences than with the term vog.
+- Existing information channels, such as SMS alerts and Facebook, are already used by at least one interviewed cooperative.
+- Farmers may also benefit from physical protective measures, not just early-warning information.
+
+These interviews provide preliminary firsthand information about agricultural concerns and existing warning channels. However, the findings do not yet establish the extent of vog-specific agricultural impacts or validate the need for a dedicated vog early-warning system.
+
+Further interviews, particularly with agricultural communities in Cavite, are needed to better understand their experiences and needs.
+
+## Current Development Progress
+
+The business concept was initially documented in my SBIC 2026 workbook, where it was classified at **Technology Readiness Level (TRL) 1**.
+
+Development has since progressed into an early geospatial prototype.
+
+### Completed
+
+- Downloaded and inspected Philippine administrative boundary shapefiles.
+- Used GeoPandas to extract barangay geographic information for Amadeo, Cavite.
+- Generated a CSV containing coordinates for Amadeo's 26 barangays.
+- Created an interactive HTML map displaying the barangays and Taal Volcano's crater location.
+- Conducted preliminary field interviews with agricultural organizations.
+
+### Next Steps
+
+1. Integrate wind direction and weather data.
+2. Explore a basic downwind estimation method.
+3. Investigate how SO₂ emission measurements could contribute to risk estimation.
+4. Develop an initial barangay-level risk classification.
+5. Test the approach against historical volcanic events and available observations.
+6. Explore SMS alert integration.
+
+**Current limitation:** The existing prototype focuses on geographic data preparation and visualization. It does not yet perform vog forecasting, risk classification, or SMS alert delivery.
+
+## Project Files
+
+| File | Description |
+|---|---|
+| `inspect_columns.py` | Shows the column names in the barangay shapefile. |
+| `extract_barangays.py` | Extracts one representative latitude/longitude point per Amadeo barangay into a CSV. |
+| `plot_map.py` | Generates an interactive map of the barangays and Taal crater. |
+| `data/amadeo_barangays.csv` | Contains geographic coordinates for Amadeo's 26 barangays. |
+
+## How to Run
+
+### 1. Install Python
+
+Make sure Python is installed on your computer.
+
+### 2. Install the required packages
+
+```bash
+pip install geopandas pandas folium requests
+```
+
+### 3. Download the barangay boundaries
+
+Download the administrative boundary shapefile (SHP ZIP) from HDX and place the required administrative boundary files inside the `data/` folder.
+
+### 4. Extract the barangay information
+
+```bash
+python extract_barangays.py
+```
+
+### 5. Generate the interactive map
+
+```bash
+python plot_map.py
+```
+
+### 6. View the map
+
+Open the generated HTML file from the `outputs/` folder in your browser.
+
+## Data Sources
+
+### Currently Used
+
+- **HDX - Common Operational Datasets (COD-AB):** Administrative boundaries used for geographic data extraction.
+- **Esri:** Interactive map basemap.
+
+### Planned Data Sources
+
+- **PHIVOLCS:** Taal Volcano bulletins and SO₂ emission measurements.
+- **Weather API:** Wind direction and weather information.
+- **PhilSA Copernicus Philippines (CopPhil):** Sentinel-5P satellite observations.
+
+## Project Status
+
+VogGuard PH is an early-stage, independently developed student project.
+
+Its current focus is on geographic data preparation, preliminary field research, and exploring the feasibility of localized volcanic hazard warnings for agricultural communities.
+
+The concept, technical approach, and proposed warning capabilities are still under development.
+
+**Built while learning, researching, and exploring the possibilities of space technology for local agricultural communities.**
