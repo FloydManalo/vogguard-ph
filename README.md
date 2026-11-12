@@ -31,43 +31,36 @@ The initial goal is to explore whether the system could provide **1–3 hours of
 
 Sentinel-5P observations, potentially accessed through PhilSA's Copernicus Philippines (CopPhil), are also being considered for monitoring and retrospective validation. Since satellite observations are not continuously available, they would not serve as the sole trigger for immediate alerts.
 
-Preliminary Field Research
+## Preliminary Field Research
 
-Initial field interviews were conducted during Cacao and Coffee Congress 2026, held at the Batangas Province Events Center.
+Initial field interviews were conducted during **Cacao and Coffee Congress 2026**, held at the **Batangas Province Events Center**.
 
-The event provided an opportunity to speak informally with representatives of agricultural organizations and cooperatives about their experiences with Taal Volcano, agricultural impacts, existing warning channels, and possible solutions.
+The event provided an opportunity to speak with representatives of agricultural organizations and cooperatives about their experiences with Taal Volcano, agricultural impacts, existing warning channels, and possible solutions.
 
 The interviews were conducted during the second day of the two-day event. Most of the exhibitors I encountered appeared to be from Batangas. Although there were designated stalls for Cavite and Rizal, these were unoccupied when I visited. This limited my opportunity to gather perspectives from agricultural communities in those areas.
 
-Organizations Interviewed
+### Organizations Interviewed
 
-1. BAMAHGACO - San Pascual, Batangas
+**1. BAMAHGACO - San Pascual, Batangas**
 
-Reported limited agricultural impact from Taal Volcano due to their location.
+- Reported limited agricultural impact from Taal Volcano due to their location.
+- Recalled the 2020 eruption, when crops were covered with white ash.
+- No specific information about their warning and update channels was obtained.
 
-Recalled the 2020 eruption, when crops were covered with white ash.
+**2. San Jose Workers Multi-Purpose Cooperative**
 
-No specific information about their warning and update channels was obtained.
+- Recalled ashfall events associated with Taal Volcano and reported that these affected their crops and farming activities.
+- Reported receiving updates through SMS alerts, Facebook, and similar channels.
+- Suggested that protective tents or coverings against ashfall could help protect agricultural crops.
 
-2. San Jose Workers Multi-Purpose Cooperative
+### Initial Observations
 
-Recalled ashfall events associated with Taal Volcano and reported that these affected their crops and farming activities.
+- **Agricultural impacts:** The respondents mainly recalled ashfall events and their effects on crops and farming activities.
+- **Vog awareness:** Respondents were generally more familiar with ashfall than with the term vog. This does not necessarily mean they have never experienced vog, as they may describe or recognize volcanic haze differently.
+- **Existing warning channels:** SMS alerts and Facebook are already being used by at least one interviewed cooperative to receive updates.
+- **Additional farmer needs:** The suggestion of protective tents or coverings highlights that physical crop protection may also be an important concern, alongside early-warning information.
 
-Reported receiving updates through SMS alerts, Facebook, and similar channels.
-
-Suggested that protective tents or coverings against ashfall could help protect agricultural crops.
-
-Initial Observations
-
-Agricultural impacts: The respondents mainly recalled ashfall events and their effects on crops and farming activities.
-
-Vog awareness: Respondents were generally more familiar with ashfall than with the term vog. This does not necessarily mean they have never experienced vog, as they may describe or recognize volcanic haze differently.
-
-Existing warning channels: SMS alerts and Facebook are already being used by at least one interviewed cooperative to receive updates.
-
-Additional farmer needs: The suggestion of protective tents or coverings highlights that physical crop protection may also be an important concern, alongside early-warning information.
-
-Research Limitations
+### Research Limitations
 
 These interviews provide preliminary firsthand information about agricultural concerns and existing warning channels. However, the findings do not yet establish the extent of vog-specific agricultural impacts or validate the need for a dedicated vog early-warning system.
 
@@ -93,12 +86,12 @@ Development has since progressed into an early geospatial prototype.
 
 ### Next Steps
 
-1. Integrate wind direction and weather data.
-2. Explore a basic downwind estimation method.
-3. Investigate how SO₂ emission measurements could contribute to risk estimation.
-4. Develop an initial barangay-level risk classification.
-5. Test the approach against historical volcanic events and available observations.
-6. Explore SMS alert integration.
+- Integrate wind direction and weather data.
+- Explore a basic downwind estimation method.
+- Investigate how SO₂ emission measurements could contribute to risk estimation.
+- Develop an initial barangay-level risk classification.
+- Test the approach against historical volcanic events and available observations.
+- Explore SMS alert integration.
 
 **Current limitation:** The existing prototype focuses on geographic data preparation and visualization. It does not yet perform vog forecasting, risk classification, or SMS alert delivery.
 
@@ -117,29 +110,29 @@ Development has since progressed into an early geospatial prototype.
 
 Make sure Python is installed on your computer.
 
-### 2. Install the required packages
+### 2. Install the Required Packages
 
 ```bash
 pip install geopandas pandas folium requests
 ```
 
-### 3. Download the barangay boundaries
+### 3. Download the Barangay Boundaries
 
-Download the administrative boundary shapefile (SHP ZIP) from HDX and place the required administrative boundary files inside the `data/` folder.
+Download the administrative boundary shapefile (SHP ZIP) from [HDX](https://data.humdata.org/) and place the required administrative boundary files inside the `data/` folder.
 
-### 4. Extract the barangay information
+### 4. Extract the Barangay Information
 
 ```bash
 python extract_barangays.py
 ```
 
-### 5. Generate the interactive map
+### 5. Generate the Interactive Map
 
 ```bash
 python plot_map.py
 ```
 
-### 6. View the map
+### 6. View the Map
 
 Open the generated HTML file from the `outputs/` folder in your browser.
 
@@ -164,4 +157,6 @@ Its current focus is on geographic data preparation, preliminary field research,
 
 The concept, technical approach, and proposed warning capabilities are still under development.
 
-**Built while learning, researching, and exploring the possibilities of space technology for local agricultural communities.**
+---
+
+*Built while learning, researching, and exploring the possibilities of space technology for local agricultural communities.*
