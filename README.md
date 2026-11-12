@@ -31,33 +31,51 @@ The initial goal is to explore whether the system could provide **1–3 hours of
 
 Sentinel-5P observations, potentially accessed through PhilSA's Copernicus Philippines (CopPhil), are also being considered for monitoring and retrospective validation. Since satellite observations are not continuously available, they would not serve as the sole trigger for immediate alerts.
 
-## Preliminary Field Research
+Preliminary Field Research
 
-Initial field interviews were conducted during an agricultural exhibit, providing an opportunity to speak with representatives of agricultural organizations and cooperatives.
+Initial field interviews were conducted during Cacao and Coffee Congress 2026, held at the Batangas Province Events Center.
 
-### Organizations Interviewed
+The event provided an opportunity to speak informally with representatives of agricultural organizations and cooperatives about their experiences with Taal Volcano, agricultural impacts, existing warning channels, and possible solutions.
 
-**1. BAMAHGACO - San Pascual, Batangas**
+The interviews were conducted during the second day of the two-day event. Most of the exhibitors I encountered appeared to be from Batangas. Although there were designated stalls for Cavite and Rizal, these were unoccupied when I visited. This limited my opportunity to gather perspectives from agricultural communities in those areas.
 
-- Reported limited agricultural impact from Taal Volcano due to their location.
-- Recalled the 2020 eruption, when crops were covered with white ash.
-- No specific information about their warning and update channels was obtained.
+Organizations Interviewed
 
-**2. San Jose Workers Multi-Purpose Cooperative**
+1. BAMAHGACO - San Pascual, Batangas
 
-- Recalled ashfall events associated with Taal Volcano and reported that these affected crops and farming activities.
-- Reported receiving updates through SMS alerts, Facebook, and similar channels.
-- Suggested that protective tents or coverings against ashfall could help protect agricultural crops.
+Reported limited agricultural impact from Taal Volcano due to their location.
 
-### Initial Observations
+Recalled the 2020 eruption, when crops were covered with white ash.
 
-- Respondents were generally more familiar with ashfall experiences than with the term vog.
-- Existing information channels, such as SMS alerts and Facebook, are already used by at least one interviewed cooperative.
-- Farmers may also benefit from physical protective measures, not just early-warning information.
+No specific information about their warning and update channels was obtained.
+
+2. San Jose Workers Multi-Purpose Cooperative
+
+Recalled ashfall events associated with Taal Volcano and reported that these affected their crops and farming activities.
+
+Reported receiving updates through SMS alerts, Facebook, and similar channels.
+
+Suggested that protective tents or coverings against ashfall could help protect agricultural crops.
+
+Initial Observations
+
+Agricultural impacts: The respondents mainly recalled ashfall events and their effects on crops and farming activities.
+
+Vog awareness: Respondents were generally more familiar with ashfall than with the term vog. This does not necessarily mean they have never experienced vog, as they may describe or recognize volcanic haze differently.
+
+Existing warning channels: SMS alerts and Facebook are already being used by at least one interviewed cooperative to receive updates.
+
+Additional farmer needs: The suggestion of protective tents or coverings highlights that physical crop protection may also be an important concern, alongside early-warning information.
+
+Research Limitations
 
 These interviews provide preliminary firsthand information about agricultural concerns and existing warning channels. However, the findings do not yet establish the extent of vog-specific agricultural impacts or validate the need for a dedicated vog early-warning system.
 
-Further interviews, particularly with agricultural communities in Cavite, are needed to better understand their experiences and needs.
+The interviews were conducted opportunistically during an agricultural exhibit and involved only two organizations. The limited availability of exhibitors from Cavite and Rizal also meant that perspectives from some of the intended target communities were not gathered.
+
+Further interviews, particularly with agricultural communities in Amadeo and Silang, Cavite, are needed to better understand farmers' experiences with vog, ashfall, and existing warning systems.
+
+These findings are preliminary and should not be treated as representative of all agricultural communities surrounding Taal Volcano.
 
 ## Current Development Progress
 
