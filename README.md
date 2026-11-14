@@ -158,5 +158,3 @@ Its current focus is on geographic data preparation, preliminary field research,
 The concept, technical approach, and proposed warning capabilities are still under development.
 
 ---
-
-*Built while learning, researching, and exploring the possibilities of space technology for local agricultural communities.*
