@@ -3,7 +3,7 @@ from math import radians, degrees, sin, cos, atan2, sqrt
 
 CRATER_LAT, CRATER_LON = 14.002, 120.993
 CONE_DEG = 30            # placeholder: how far off the wind line still counts as downwind
-FLUX_YELLOW = 5000       # placeholder (tonnes/day), not from a source
+FLUX_YELLOW = 3000       # PRELIMINARY: between highest quiet day (2,730) and lowest vog day (3,355) in 5 events
 FLUX_RED = 10000         # placeholder (tonnes/day), not from a source
 MAX_RELIABLE_HOURS = 3   # placeholder: arrival estimates longer than this are not trusted
 
