@@ -1,13 +1,14 @@
 """Back-test VogGuard on real days listed in data/vog_events.csv.
 
-For each day it asks two questions:
-  1) Wind only: did the wind point at Amadeo (steadily, with a trusted arrival time)?
-  2) Full model: would the placeholder flux thresholds also have triggered an alert?
-Then it compares both answers with what was actually observed."""
+For each day it measures three things:
+  1) in_cone_hours   : hours the wind pointed at Amadeo (direction only)
+  2) wind_only_hours : hours with a firm alert, after the speed and stability rules
+  3) full_model_hours: firm-alert hours when the day's real flux is also used
+Then it compares them with what was actually observed."""
 from datetime import datetime, timedelta
 import pandas as pd
 from get_past_wind import get_wind_for_range
-from rate_barangays import FLUX_RED
+from rate_barangays import rate_barangays, FLUX_RED
 from stability import rate_with_stability
 
 
@@ -18,6 +19,20 @@ def clean_winds(hourly):
     for s, d in zip(hourly["wind_speed_10m"], hourly["wind_direction_10m"]):
         winds.append((max(s, 0.1) if s is not None else None, d))
     return winds
+
+
+def hours_in_cone(barangays, winds):
+    """Count hours (out of the first 24) when the wind points at one or more
+    barangays, ignoring speed, arrival time and stability."""
+    count = 0
+    for i in range(24):
+        s, d = winds[i]
+        if s is None or d is None:
+            continue
+        result = rate_barangays(barangays, d, s, FLUX_RED)
+        if (result["rating"] != "GREEN").any():
+            count += 1
+    return count
 
 
 def hours_with_alert(barangays, winds, flux):
@@ -62,6 +77,7 @@ if __name__ == "__main__":
             print(date, "skipped: not enough wind data")
             continue
 
+        in_cone = hours_in_cone(barangays, winds)
         wind_only = hours_with_alert(barangays, winds, FLUX_RED)   # flux set high, so only wind decides
         if pd.notna(ev["flux_t_per_day"]):
             full_model = hours_with_alert(barangays, winds, float(ev["flux_t_per_day"]))
@@ -72,15 +88,24 @@ if __name__ == "__main__":
             "date": date,
             "observed": observed,
             "flux": ev["flux_t_per_day"],
+            "in_cone_hours": in_cone,
             "wind_only_hours": wind_only,
             "full_model_hours": full_model,
         })
 
     results = pd.DataFrame(rows)
+
+    if results["observed"].nunique() < 2:
+        print("\nWARNING: every day is labeled the same ('" + results["observed"].iloc[0] + "').")
+        print("False alarms can't be measured. Check the amadeo_vog column in data/vog_events.csv.")
+
     print()
     print(results.to_string(index=False))
 
-    score(results, "wind_only_hours", "WIND ONLY (does the direction logic match reality?)")
+    print("\nAverage hours the wind pointed at Amadeo (out of 24):")
+    print(results.groupby("observed")["in_cone_hours"].mean().round(1).to_string())
+
+    score(results, "wind_only_hours", "WIND ONLY (after speed and stability rules)")
     score(results, "full_model_hours", "FULL MODEL (with placeholder flux thresholds)")
 
     results.to_csv("outputs/back_test_results.csv", index=False)
