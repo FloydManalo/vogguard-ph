@@ -33,9 +33,9 @@ Sentinel-5P observations, potentially accessed through PhilSA's Copernicus Phili
 
 ## Preliminary Field Research
 
-Initial field interviews were conducted during **Cacao and Coffee Congress 2026**, held at the **Batangas Province Events Center**.
+Initial field interviews were conducted during **Calabarzon Cacao and Coffee Congress 2026**, held at the **Batangas Province Events Center** on November 12, 2026.
 
-The event provided an opportunity to speak with representatives of agricultural organizations and cooperatives about their experiences with Taal Volcano, agricultural impacts, existing warning channels, and possible solutions.
+The event provided me an opportunity to speak with representatives of agricultural organizations and cooperatives about their experiences with Taal Volcano, agricultural impacts, existing warning channels, and possible solutions.
 
 The interviews were conducted during the second day of the two-day event. Most of the exhibitors I encountered appeared to be from Batangas. Although there were designated stalls for Cavite and Rizal, these were unoccupied when I visited. This limited my opportunity to gather perspectives from agricultural communities in those areas.
 
