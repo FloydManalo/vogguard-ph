@@ -141,7 +141,6 @@ Open the generated HTML file from the `outputs/` folder in your browser.
 ### Currently Used
 
 - **HDX - Common Operational Datasets (COD-AB):** Administrative boundaries used for geographic data extraction.
-- **Esri:** Interactive map basemap.
 
 ### Planned Data Sources
 
