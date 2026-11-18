@@ -83,11 +83,11 @@ Development has since progressed into an early geospatial prototype.
 - Generated a CSV containing coordinates for Amadeo's 26 barangays.
 - Created an interactive HTML map displaying the barangays and Taal Volcano's crater location.
 - Conducted preliminary field interviews with agricultural organizations.
+- Integrate wind direction and weather data.
+- Explore a basic downwind estimation method.
 
 ### Next Steps
 
-- Integrate wind direction and weather data.
-- Explore a basic downwind estimation method.
 - Investigate how SO₂ emission measurements could contribute to risk estimation.
 - Develop an initial barangay-level risk classification.
 - Test the approach against historical volcanic events and available observations.
@@ -153,7 +153,5 @@ Open the generated HTML file from the `outputs/` folder in your browser.
 VogGuard PH is an early-stage, independently developed student project.
 
 Its current focus is on geographic data preparation, preliminary field research, and exploring the feasibility of localized volcanic hazard warnings for agricultural communities.
-
-The concept, technical approach, and proposed warning capabilities are still under development.
 
 ---
