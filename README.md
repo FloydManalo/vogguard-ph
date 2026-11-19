@@ -144,7 +144,6 @@ Open the generated HTML file from the `outputs/` folder in your browser.
 
 ### Planned Data Sources
 
-- **PHIVOLCS:** Taal Volcano bulletins and SO₂ emission measurements.
 - **Weather API:** Wind direction and weather information.
 - **PhilSA Copernicus Philippines (CopPhil):** Sentinel-5P satellite observations.
 
