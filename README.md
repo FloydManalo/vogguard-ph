@@ -151,6 +151,6 @@ Open the generated HTML file from the `outputs/` folder in your browser.
 
 VogGuard PH is an early-stage, independently developed student project.
 
-Its current focus is on geographic data preparation, preliminary field research, and exploring the feasibility of localized volcanic hazard warnings for agricultural communities.
+Its current focus is on geographic data preparation, preliminary field research, and exploring the feasibility of localized volcanic hazard warnings for agricultural communities. It will continue developing as I develop more knowledge regarding QGIS, Python, and Interactive Mapping as well as creating a working web dashboard and a SMS system.
 
 ---
